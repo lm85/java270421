@@ -5,9 +5,9 @@ import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-public class Autor {
+public class Autor implements Comparable{
     private String name;
-    SortedSet<String> quotes = new TreeSet<String>();
+    private SortedSet<String> quotes = new TreeSet<String>();
 
     public Autor(String name) {
 
@@ -56,5 +56,14 @@ public class Autor {
         final int hash = Objects.hash(this.name);
         return hash;
 
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (this.equals(o)==true) {
+
+            return 0;
+        }
+        else return 1;
     }
 }
