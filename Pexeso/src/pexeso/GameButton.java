@@ -15,8 +15,8 @@ public class GameButton extends JButton {
 
     private String symbol = "";
     private int index = -1;
-    static int CoutTurnedCard = 0;
-    static int[] turnedCard = new int[2];
+    private static int CoutTurnedCard = 0;
+    private static int[] turnedCard = new int[2];
 
     public GameButton(int index) {
         super();
@@ -40,17 +40,41 @@ public class GameButton extends JButton {
         this.symbol = symbol;
     }
 
+    public static int[] getTurnedCard() {
+        return turnedCard;
+    }
+
+    public void cleanTurnedCards() {
+        this.CoutTurnedCard = 0;
+        this.getTurnedCard()[0] = 0;
+        this.getTurnedCard()[1] = 0;
+    }
+
+    private void addIndex(int index) {
+
+        if (turnedCard[0] == 0) {
+            turnedCard[0] = index;
+        } else {
+            turnedCard[1] = index;
+        }
+
+    }
+
     public boolean turnCard() {
 
+        if (CoutTurnedCard == 2) {
+
+            return true;
+        }
+
+        this.addIndex(this.index);
+
         if (super.getText().equals("PEXESO")) {
-            if (CoutTurnedCard == 2) {
-                
-                return true;
-            }
 
             super.setText(symbol);
 
             CoutTurnedCard++;
+            
         } else {
 
             super.setText("PEXESO");

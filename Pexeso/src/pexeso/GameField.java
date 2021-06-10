@@ -22,12 +22,11 @@ import javax.swing.JOptionPane;
  *
  * @author lmasic
  */
-public class GameField extends Thread{
+public class GameField extends Thread {
 
     JFrame frame;
     GameButton[] buttons;
     String[] symbols;
-    
 
     public GameField() {
 
@@ -37,30 +36,30 @@ public class GameField extends Thread{
             r = 3;
         }*/
         int r = 4;
-        symbolsGen(r*r);
+        symbolsGen(r * r);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setMinimumSize(new Dimension(r * 100 + 20, r * 100 + 20));
         Container pane = frame.getContentPane();
         pane.setLayout(new GridLayout(r, r));
 
         buttons = new GameButton[r * r];
-        
+
         for (int i = 0; i < buttons.length; i++) {
             buttons[i] = new GameButton(i);
             buttons[i].setText("PEXESO");
             buttons[i].setSymbol(symbols[i]);
-            //buttons[i].setText(symbols[i]);    
-            
+            //buttons[i].setText(symbols[i]);
+
             buttons[i].addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     GameButton gb = (GameButton) e.getSource();
 
-                            if (gb.turnCard()) {//hraje další hráč
-                            
-                            
-                            }
-                            
-                    
+                    if (gb.turnCard()) {//hraje další hráč
+
+                        turnCards();
+
+                    }
+
                 }
             });
 
@@ -70,27 +69,39 @@ public class GameField extends Thread{
         frame.setVisible(true);//Nutné pro zobrazení...
         start();
     }
-    
-    
-    
+
+    private void turnCards() {
+
+        if (buttons[GameButton.getTurnedCard()[0]].getText().equals(
+                buttons[GameButton.getTurnedCard()[1]].getText()))
+        {
+            buttons[GameButton.getTurnedCard()[0]].setEnabled(false);
+            buttons[GameButton.getTurnedCard()[1]].setEnabled(false);
+        }
+
+        buttons[GameButton.getTurnedCard()[0]].setText("PEXESO");
+        buttons[GameButton.getTurnedCard()[1]].setText("PEXESO");
+
+        buttons[0].cleanTurnedCards();
+    }
+
     private void symbolsGen(int r) {
-        
+
         symbols = new String[r];
-         for (int i = 0; i < symbols.length/2; i++) {
-            symbols[i]=Integer.toString(i+1);
-            symbols[symbols.length-1-i]=Integer.toString(i+1);
-                    }
-         
-         Random rand = new Random();
-		
-		for (int i = 0; i < symbols.length; i++) {
-			int randomIndexToSwap = rand.nextInt(symbols.length);
-			String temp = symbols[randomIndexToSwap];
-			symbols[randomIndexToSwap] = symbols[i];
-			symbols[i] = temp;
-		}
-         
-         
+        for (int i = 0; i < symbols.length / 2; i++) {
+            symbols[i] = Integer.toString(i + 1);
+            symbols[symbols.length - 1 - i] = Integer.toString(i + 1);
+        }
+
+        /*Random rand = new Random();
+
+        for (int i = 0; i < symbols.length; i++) {
+            int randomIndexToSwap = rand.nextInt(symbols.length);
+            String temp = symbols[randomIndexToSwap];
+            symbols[randomIndexToSwap] = symbols[i];
+            symbols[i] = temp;
+        }*/
+
     }
 
 }
