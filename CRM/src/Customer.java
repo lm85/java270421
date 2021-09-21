@@ -1,0 +1,50 @@
+public class Customer {
+
+    private String name;
+    private Address residence;
+    private Person contactPerson;
+    private String notes;
+
+    public Customer() {
+
+
+    }
+    public Customer(String name, Address residence, Person contactPerson, String notes) {
+        this.name = name;
+        this.residence = residence;
+        this.contactPerson = contactPerson;
+        this.notes = notes;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Address getResidence() {
+        return residence;
+    }
+
+    public void setResidence(Address residence) {
+        this.residence = residence;
+    }
+
+    public Person getContactPerson() {
+        return contactPerson;
+    }
+
+    public void setContactPerson(Person contactPerson) {
+        this.contactPerson = contactPerson;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+}
