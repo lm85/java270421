@@ -4,6 +4,7 @@ public class Customer implements Cloneable {
     private Address residence;
     private Person contactPerson;
     private String notes;
+    private Meetings meetings;
 
     public Customer() {
 
@@ -14,6 +15,13 @@ public class Customer implements Cloneable {
         this.residence = residence;
         this.contactPerson = contactPerson;
         this.notes = notes;
+    }
+
+    public void setMeetings (Meetings meetings) {
+
+        if (meetings.getCustomer()==this)
+            this.meetings=meetings;
+        //TODO: else - exception
     }
 
     public String getName() {
