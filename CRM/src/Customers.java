@@ -15,25 +15,37 @@ public class Customers {
 
     public void removeCustomer(Customer customer) {
 
-
+        this.Customers.remove(customer);
 
     }
 
     public void removeCustomer(int index) {
 
-    
+        this.Customers.remove(index);
 
     }
 
-    public Customer getCustomer(int index) {
+    public Customer getCustomer(int index) throws CloneNotSupportedException {
+
+        //return this.Customers.get(index);
+
+        return (Customer) this.Customers.get(index).clone();
 
 
 
     }
 
-    public Customer searchCustomer(String name) {
+    public Customer searchCustomer(String name) throws CloneNotSupportedException {
+        Customer c=null;
+        for (c: this.Customers) {
 
+            if (c.getName().equals(name)) {
+                return (Customer)  c.clone();
 
+            }
+        }
+
+     
 
     }
 

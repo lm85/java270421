@@ -1,4 +1,4 @@
-public class Customer {
+public class Customer implements Cloneable {
 
     private String name;
     private Address residence;
@@ -46,5 +46,10 @@ public class Customer {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public Object clone() throws CloneNotSupportedException
+    {
+        return super.clone();
     }
 }

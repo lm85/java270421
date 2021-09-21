@@ -1,4 +1,4 @@
-public class Person {
+public class Person implements Cloneable {
 
     private String name;
     private String surName;
@@ -46,5 +46,9 @@ public class Person {
 
     public void setTel(String tel) {
         this.tel = tel;
+    }
+    public Object clone() throws CloneNotSupportedException
+    {
+        return super.clone();
     }
 }
