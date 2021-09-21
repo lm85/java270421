@@ -36,8 +36,8 @@ public class Customers {
     }
 
     public Customer searchCustomer(String name) throws CloneNotSupportedException {
-        Customer c=null;
-        for (c: this.Customers) {
+
+        for (Customer c: this.Customers) {
 
             if (c.getName().equals(name)) {
                 return (Customer)  c.clone();
@@ -45,7 +45,7 @@ public class Customers {
             }
         }
 
-     
+
 
     }
 
