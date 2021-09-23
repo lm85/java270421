@@ -60,4 +60,15 @@ public class Customer implements Cloneable {
     {
         return super.clone();
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", residence=" + residence +
+                ", contactPerson=" + contactPerson +
+                ", notes='" + notes + '\'' +
+                ", meetings=" + meetings +
+                '}';
+    }
 }

@@ -40,4 +40,11 @@ public class Meetings {
         return null;
     }
 
+    @Override
+    public String toString() {
+        return "Meetings{" +
+                "meetings=" + meetings +
+               // ", customer=" + customer +
+                '}';
+    }
 }

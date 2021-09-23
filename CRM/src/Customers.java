@@ -49,6 +49,10 @@ public class Customers {
 
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Customers{" +
+                "Customers=" + Customers +
+                '}';
+    }
 }

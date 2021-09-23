@@ -50,5 +50,15 @@ public class Meeting implements Cloneable {
     {
         return super.clone();
     }
- }
+
+    @Override
+    public String toString() {
+        return "Meeting{" +
+                "date=" + date +
+                ", time=" + time +
+                ", place=" + place +
+                ", record='" + record + '\'' +
+                '}';
+    }
+}
 
