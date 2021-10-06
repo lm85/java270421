@@ -11,7 +11,7 @@ public class Oko {
         this.deck = new Deck();
 
         for(int i=0;i<numPlayes;i++)
-        this.players.add(new Player("Hráč"+String.valueOf(i),this.deck );
+            this.players.add(new Player("Hráč"+String.valueOf(i),this.deck );
 
     }
 
@@ -21,7 +21,7 @@ public class Oko {
 
 
     public void spustit() {
-
+        //TODO: rozdání prvních karet
         do {
             if (this.round()) {
                 System.out.println("Vítězem je: "+winner.getName());
@@ -40,7 +40,7 @@ public class Oko {
         for (Player player:this.players) {
 
             System.out.println("Hraje hráč: "+player.getName());
-            //TODO: lízání karet
+
 
             player.lickNextcCard();
 
@@ -55,15 +55,15 @@ public class Oko {
                 return true;
             }else if (otherOver21(player)){
                 this.winner=player;
-                return true;
+                return false;
             }
-            //TODO 2c
+
 
 
 
         }
-
-
+        if (this.equalSumCards()) this.winner=this.minSumCardsPlayer();
+        
         System.out.println("-----");
         return false;
     }
@@ -100,4 +100,40 @@ public class Oko {
         return (this.players.size()-1)==sumOver;
 
     }
+
+    private Player minSumCardsPlayer() {
+        int min=this.players.get(0).getSumCards();
+
+        Player minPlayer = this.players.get(0);
+
+        for (Player player:this.players) {
+
+            if(player.getSumCards()<min)  {
+                min=player.getSumCards();
+                minPlayer = player;
+
+            }
+
+
+
+        }
+        return minPlayer;
+    }
+
+
+
+    private boolean equalSumCards() {
+
+        int sumCard=this.players.get(0).getSumCards();
+
+        for (Player player:this.players) {
+
+            if(sumCard != player.getSumCards()) return false;
+            else sumCard = player.getSumCards();
+
+
+        }
+        return true;
+}
+
 }

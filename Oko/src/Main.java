@@ -4,7 +4,7 @@ public class Main {
 
 
 
-        /*Player lm =  new Player("LM");
+        Player lm =  new Player("LM");
         lm.lickNextcCard();
         lm.lickNextcCard();
         lm.lickNextcCard();
