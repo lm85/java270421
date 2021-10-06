@@ -2,14 +2,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Email getLastInc = new Email("Novak");
+        Email email = new Email("Novak");
 
         String surname = "Novak";
 
-        getLastInc.getLastInc(surname);// vrátí Novak
+        email.getLastInc(surname);// vrátí Novak
 
         String surname2 = "Novak";
-        getLastInc.getLastInc(surname2);// vrátí Novak2
+        System.out.println(
+        email.getLastInc(surname2));// vrátí Novak2
 
 
 
