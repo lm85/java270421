@@ -44,9 +44,17 @@ public class Emails {
         return null;
     }
 
-    public void import(ArrayList<String> surnames) {
+    public void importNames(String[][] surnames) {
+
+        for (int i=0;i<surnames.length;i++) {
+
+            System.out.println(surnames[i][0]);
+            this.addName(surnames[i][0]);
+
+        }
 
 
     }
 
+    //TODO - kontrola a výstup programu
 }
