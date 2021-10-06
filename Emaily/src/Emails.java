@@ -15,32 +15,38 @@ public class Emails {
 
     public void addName(String surname) {
 
-        String name = searchLast(surname);
+        Email name = searchLast(surname);
 
         if (name==null) {//new a add
-
-
+            Email e =new Email(surname);
+            this.emails.add(e);
+            this.emailsList.add(e.getLastInc());
 
 
         }else {//jen add
 
-            this.emailsList.add(name);
+
+            this.emailsList.add(name.getLastInc());
+            this.emails.add(name);
 
         }
 
 
     }
 
-    private String searchLast(String surname) {//např. Novak3
+    private Email searchLast(String surname) {//např. Novak3
 
         for (Email e:this.emails) {
             if (e.getName().equals(surname))
-                return e.getLastInc(surname);
+                return e;
         }
 
         return null;
     }
 
+    public void import(ArrayList<String> surnames) {
 
+
+    }
 
 }

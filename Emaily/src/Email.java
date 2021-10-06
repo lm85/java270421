@@ -19,14 +19,14 @@ public class Email {
 
     }
 
-    public String getLastInc(String surname) {
+    public String getLastInc() {
 
         if (this.inc==0) {
             this.inc=1;
-            return surname;
+            return name;
         }
         else {this.inc++;
-            return surname+Integer.valueOf(this.inc);
+            return name+Integer.valueOf(this.inc);
         }
 
 
