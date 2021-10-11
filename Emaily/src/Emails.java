@@ -54,11 +54,26 @@ public class Emails {
 
 
     }
+    public String exportEmails() {////kucerova@itstep.org
 
+        String r="";
+
+        for (String e : emails.keySet()) {// https://www.w3schools.com/java/java_hashmap.asp
+
+                        for (String s:emails.get(e).genEmails()) {
+
+                            r+=s+"@"+this.company+", ";
+
+            }
+
+        }
+        return r;
+    }
+    
     @Override
     public String toString() {
         return "Emails{" +
-                "emailsList=" + emails+
+                "emailsList=" + this.exportEmails() +
                 '}';
     }
 

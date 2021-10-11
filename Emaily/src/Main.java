@@ -1,4 +1,9 @@
+
+
+
+
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Main {
 
@@ -37,7 +42,7 @@ public class Main {
 
 
 
-
+                        
     };
 
         Emails emails = new Emails("istep.org");
@@ -45,7 +50,6 @@ public class Main {
         emails.importNames(xxx);
 
         System.out.println(emails);
-
 
 
 
