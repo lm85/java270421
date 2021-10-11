@@ -3,8 +3,11 @@ import java.util.*;
 
 public class Emails {
 
-    private Set<String> emailsList = new HashSet<String>();//TODO: předělat do mapy
+  /*  private Set<String> emailsList = new HashSet<String>();//TODO: předělat do mapy
     private ArrayList<Email> emails = new ArrayList<Email>();//TODO: předělat do mapy
+*/
+    private Map<String, Email> emails = new TreeMap<>();
+
     private String company;
 
     public Emails(String company) {
@@ -19,15 +22,14 @@ public class Emails {
 
         if (name==null) {//new a add
             Email e =new Email(surname);
-            this.emails.add(e);
-            this.emailsList.add(e.getLastInc());
+            this.emails.put(surname,e);
+
 
 
         }else {//jen add
 
 
-            this.emailsList.add(name.getLastInc());
-            this.emails.add(name);
+            this.emails.get(surname).inc();
 
         }
 
@@ -36,19 +38,16 @@ public class Emails {
 
     private Email searchLast(String surname) {//např. Novak3
 
-        for (Email e:this.emails) {
-            if (e.getName().equals(surname))
-                return e;
-        }
+        return this.emails.get(surname);
 
-        return null;
+
     }
 
     public void importNames(String[][] surnames) {
 
         for (int i=0;i<surnames.length;i++) {
 
-            System.out.println(surnames[i][0]);
+            //System.out.println(surnames[i][0]);
             this.addName(surnames[i][0]);
 
         }
@@ -56,5 +55,13 @@ public class Emails {
 
     }
 
-    //TODO - kontrola a výstup programu
+    @Override
+    public String toString() {
+        return "Emails{" +
+                "emailsList=" + emails+
+                '}';
+    }
+
+
+
 }

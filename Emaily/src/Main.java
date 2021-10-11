@@ -20,7 +20,7 @@ public class Main {
 
         String[][] xxx =
                 {
-                {"Nováková", "Jana"},
+            /*    {"Nováková", "Jana"},
                 {"Novák", "Jan"},
                 {"Svobodová", "Lucie"},
                 {"Svoboda", "Tomáš"},
@@ -30,9 +30,12 @@ public class Main {
                 {"Dvořák","Martin"},
                 {"Černá","Karolína"},
                 {"Černý","Jaroslav"},
-                {"Procházková","Eva"},
+                {"Procházková","Eva"},*/
                 {"Procházka","Miroslav"},
-                {"Kučerová","Hana"}
+                        {"Kučerová","Hana"},
+                        {"Kučerová","Hana"}
+
+
 
 
     };
@@ -41,6 +44,7 @@ public class Main {
 
         emails.importNames(xxx);
 
+        System.out.println(emails);
 
 
 

@@ -1,11 +1,13 @@
 public class Email {
 
+    //TODO: odtranit diaktitiku
+
     private String name;//Novak
     private int inc; //3 = Novak, Novak2, Novak3
 
     public Email(String name) {
         this.name = name;
-        this.inc=0;
+        this.inc=1;
 
     }
 
@@ -21,8 +23,8 @@ public class Email {
 
     public String getLastInc() {
 
-        if (this.inc==0) {
-            this.inc=1;
+        if (this.inc==1) {
+
             return name;
         }
         else {this.inc++;
@@ -52,5 +54,11 @@ public class Email {
         this.inc++;
     }
 
-
+    @Override
+    public String toString() {//TODO - všechny varianty
+        return "Email{" +
+                "name='" + name + '\'' +
+                ", inc=" + inc +
+                '}';
+    }
 }
